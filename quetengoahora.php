@@ -165,7 +165,20 @@
     function mostrarHorario(){
         global $horario;
         echo "<h1>Horario de clase 2ºDAW</h1>";
+        echo "<table border='4' bordercolor='blue'
+        cellpadding='15'>";
         foreach($horario as $dia => $horario1){
+            echo "<tr><td>$dia</td></tr>";
+            foreach($horario1 as $hora => $info){
+                echo "<td>";
+                foreach($info as $titulo => $contenido){
+                    echo "<b>$titulo</b>: $contenido</br>";
+                }
+                echo "</td>";
+            }
+        }
+        echo "</table>";
+        /*foreach($horario as $dia => $horario1){
                 echo "<h3>$dia</h3>";
                 echo "<hr/>";
             foreach($horario1 as $hora => $info){
@@ -177,7 +190,7 @@
                 }
                 echo "<hr/>";
             }
-        }
+        }*/
     };
 
     function obtenerModulo($diaBusqueda,$horaBusqueda,$minutosBusqueda){
@@ -196,12 +209,16 @@
                             echo "<b>$titulo</b>: $contenido";
                             echo "<br/>";
                         } 
+                    }else{
+                        echo "La hora introducida no encaja con ninguna registrada en el horario";
                     }
                 }
+            }else{
+                echo "El día introducido no encaja con ninguno registrado en el horario";
             }
         }
     };
 
-    //mostrarHorario();
-    obtenerModulo("Martes","11","21");
+    mostrarHorario();
+    //obtenerModulo("Martes","11","21");
 ?>
