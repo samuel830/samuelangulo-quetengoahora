@@ -17,17 +17,17 @@
                 "Taller" => "G201"
             ),
             "11:15 - 12:10" =>array(
-                "Materia" => "PRW",
+                "Materia" => "DEW",
                 "Docente" => "MarRod",
                 "Taller" => "G201"
             ),
             "12:10 - 13:05" =>array(
-                "Materia" => "PRW",
+                "Materia" => "DEW",
                 "Docente" => "MarRod",
                 "Taller" => "G201"
             ),
             "13:05 - 14:00" =>array(
-                "Materia" => "PRW",
+                "Materia" => "DEW",
                 "Docente" => "MarRod",
                 "Taller" => "G201"
             )
@@ -162,13 +162,44 @@
         )
     );
 
-    function mostrarHorario($horario){
+    function mostrarHorario($array){
         echo "<h1>Horario de clase 2ºDAW</h1>";
-         foreach($horario as $clave => $valor){
-            echo $clave;
-            echo "</br>";
+        foreach($array as $dia => $horario){
+                echo "<h3>$dia</h3>";
+                echo "<hr/>";
+            foreach($horario as $hora => $info){
+                    echo "<b>$hora</b>";
+                    echo "<hr/>";
+                foreach($info as $titulo => $contenido){
+                    echo "<b>$titulo</b>: $contenido";
+                    echo "<br/>";
+                }
+                echo "<hr/>";
+            }
         }
     };
 
-    mostrarHorario($horario);
+    function obtenerModulo($diaBusqueda,$horaBusqueda,$minutosBusqueda,$array){
+        if($horaBusqueda==8 && $minutosBusqueda<55){$hora1 = "8:00 - 8:55";}
+        if($horaBusqueda==8 && $minutosBusqueda>=55 || $horaBusqueda==9 && $minutosBusqueda<50 ){$hora1 = "8:55 - 9:50";}
+        if($horaBusqueda==9 && $minutosBusqueda>=50 || $horaBusqueda==10 && $minutosBusqueda<45 ){$hora1 = "9:50 - 10:45";}
+        if($horaBusqueda==11 && $minutosBusqueda>=15 || $horaBusqueda==12 && $minutosBusqueda<10 ){$hora1 = "11:15 - 12:10";}
+        if($horaBusqueda==12 && $minutosBusqueda>=10 || $horaBusqueda==13 && $minutosBusqueda<05 ){$hora1 = "12:10 - 13:05";}
+        if($horaBusqueda==13 && $minutosBusqueda>=05 || $horaBusqueda==14 && $minutosBusqueda<00 ){$hora1 = "13:05 - 14:00";}
+        foreach($array as $dia => $horario){
+            if($dia == $diaBusqueda){
+                foreach($horario as $hora2 => $info){
+                    if($hora2 === $hora1){
+                        foreach($info as $titulo => $contenido){
+                            echo "<b>$titulo</b>: $contenido";
+                            echo "<br/>";
+                        } 
+                    }
+                }
+            }
+        }
+    };
+
+    //mostrarHorario($horario);
+    obtenerModulo("Martes","11","21",$horario);
 ?>
