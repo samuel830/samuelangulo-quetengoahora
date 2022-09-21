@@ -162,18 +162,26 @@
         )
     );
 
-    echo "<h1>Horario de clase 2ºDAW</h1>";
+    echo "<h1 align='center'>Horario de clase 2ºDAW</h1>";
 
     function mostrarHorario(){
         global $horario;
-        echo "<table border='4' bordercolor='blue'
-        cellpadding='15'>";
+        echo "<table border='4'cellpadding='16' align='center'>";
+        echo "<tr>";
+        echo "<td></td>";
+        echo "<td><b>8:00 - 8:55</b></td>";
+        echo "<td><b>8:55 - 9:50</b></td>";
+        echo "<td><b>9:50 - 10:45</b></td>";
+        echo "<td><b>11:15 - 12:10</b></td>";
+        echo "<td><b>12:10 - 13:05</b></td>";
+        echo "<td><b>13:05 - 14:00</b></td>";
+        echo "</tr>";
         foreach($horario as $dia => $horario1){
-            echo "<tr><td>$dia</td></tr>";
+            echo "<tr><td><b>$dia</b></td></td>";
             foreach($horario1 as $hora => $info){
                 echo "<td>";
                 foreach($info as $titulo => $contenido){
-                    echo "<b>$titulo</b>: $contenido</br>";
+                    echo "$contenido ";
                 }
                 echo "</td>";
             }
@@ -199,11 +207,13 @@
             if($dia == $diaBusqueda){
                 foreach($horario1 as $hora2 => $info){
                     if($hora2 === $hora1){
+                        echo "<p align='center'>";
                         echo "Ahora mismo nos encontramos en: </br>";
                         foreach($info as $titulo => $contenido){
                             echo "<b>$titulo</b>: $contenido";
                             echo "<br/>";
                         } 
+                        echo "</p>";
                     }
                 }
             }
