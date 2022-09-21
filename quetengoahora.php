@@ -166,8 +166,8 @@
 
     function mostrarHorario(){
         global $horario;
-        echo "<table border='4'cellpadding='16' align='center'>";
-        echo "<tr>";
+        echo "<table border='4' cellpadding='16' align='center'>";
+        echo "<tr bgcolor='#E79233'>";
         echo "<td></td>";
         echo "<td><b>8:00 - 8:55</b></td>";
         echo "<td><b>8:55 - 9:50</b></td>";
@@ -177,7 +177,7 @@
         echo "<td><b>13:05 - 14:00</b></td>";
         echo "</tr>";
         foreach($horario as $dia => $horario1){
-            echo "<tr><td><b>$dia</b></td></td>";
+            echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
             foreach($horario1 as $hora => $info){
                 echo "<td>";
                 foreach($info as $titulo => $contenido){
@@ -185,6 +185,7 @@
                 }
                 echo "</td>";
             }
+            echo "</tr>";
         }
         echo "</table>";
     };
