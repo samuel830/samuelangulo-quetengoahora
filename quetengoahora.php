@@ -162,9 +162,10 @@
         )
     );
 
+    echo "<h1>Horario de clase 2ºDAW</h1>";
+
     function mostrarHorario(){
         global $horario;
-        echo "<h1>Horario de clase 2ºDAW</h1>";
         echo "<table border='4' bordercolor='blue'
         cellpadding='15'>";
         foreach($horario as $dia => $horario1){
@@ -178,47 +179,38 @@
             }
         }
         echo "</table>";
-        /*foreach($horario as $dia => $horario1){
-                echo "<h3>$dia</h3>";
-                echo "<hr/>";
-            foreach($horario1 as $hora => $info){
-                    echo "<b>$hora</b>";
-                    echo "<hr/>";
-                foreach($info as $titulo => $contenido){
-                    echo "<b>$titulo</b>: $contenido";
-                    echo "<br/>";
-                }
-                echo "<hr/>";
-            }
-        }*/
     };
 
     function obtenerModulo($diaBusqueda,$horaBusqueda,$minutosBusqueda){
         global $horario;
+
+        if($diaBusqueda !="Lunes" && $diaBusqueda !="Martes" && $diaBusqueda !="Miércoles" && $diaBusqueda !="Jueves" && $diaBusqueda !="Viernes"){
+            echo "Ese día no hay clases manito";
+        };
+
         if($horaBusqueda==8 && $minutosBusqueda<55){$hora1 = "8:00 - 8:55";}
         if($horaBusqueda==8 && $minutosBusqueda>=55 || $horaBusqueda==9 && $minutosBusqueda<50 ){$hora1 = "8:55 - 9:50";}
         if($horaBusqueda==9 && $minutosBusqueda>=50 || $horaBusqueda==10 && $minutosBusqueda<45 ){$hora1 = "9:50 - 10:45";}
         if($horaBusqueda==11 && $minutosBusqueda>=15 || $horaBusqueda==12 && $minutosBusqueda<10 ){$hora1 = "11:15 - 12:10";}
         if($horaBusqueda==12 && $minutosBusqueda>=10 || $horaBusqueda==13 && $minutosBusqueda<05 ){$hora1 = "12:10 - 13:05";}
         if($horaBusqueda==13 && $minutosBusqueda>=05 || $horaBusqueda==14 && $minutosBusqueda<00 ){$hora1 = "13:05 - 14:00";}
+
         foreach($horario as $dia => $horario1){
             if($dia == $diaBusqueda){
                 foreach($horario1 as $hora2 => $info){
                     if($hora2 === $hora1){
+                        echo "Ahora mismo nos encontramos en: </br>";
                         foreach($info as $titulo => $contenido){
                             echo "<b>$titulo</b>: $contenido";
                             echo "<br/>";
                         } 
-                    }else{
-                        echo "La hora introducida no encaja con ninguna registrada en el horario";
                     }
                 }
-            }else{
-                echo "El día introducido no encaja con ninguno registrado en el horario";
             }
         }
     };
 
+    obtenerModulo("Lunes","13","21");
+    echo "</br>";
     mostrarHorario();
-    //obtenerModulo("Martes","11","21");
 ?>
