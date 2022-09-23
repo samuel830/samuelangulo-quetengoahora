@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horario 2º DAW</title>
+    <title>Horario</title>
 </head>
 <body>
 <?php
@@ -198,46 +198,7 @@
         }
         echo "</table>";
     };
-
-    function obtenerModulo($diaBusqueda,$horaBusqueda,$minutosBusqueda){
-        global $horario;
-
-        if($diaBusqueda !="Lunes" && $diaBusqueda !="Martes" && $diaBusqueda !="Miércoles" && $diaBusqueda !="Jueves" && $diaBusqueda !="Viernes"){
-            echo "Ese día no hay clases manito";
-        };
-
-        if($horaBusqueda==8 && $minutosBusqueda<55){$hora1 = "8:00 - 8:55";}
-        if($horaBusqueda==8 && $minutosBusqueda>=55 || $horaBusqueda==9 && $minutosBusqueda<50 ){$hora1 = "8:55 - 9:50";}
-        if($horaBusqueda==9 && $minutosBusqueda>=50 || $horaBusqueda==10 && $minutosBusqueda<45 ){$hora1 = "9:50 - 10:45";}
-        if($horaBusqueda==11 && $minutosBusqueda>=15 || $horaBusqueda==12 && $minutosBusqueda<10 ){$hora1 = "11:15 - 12:10";}
-        if($horaBusqueda==12 && $minutosBusqueda>=10 || $horaBusqueda==13 && $minutosBusqueda<05 ){$hora1 = "12:10 - 13:05";}
-        if($horaBusqueda==13 && $minutosBusqueda>=05 || $horaBusqueda==14 && $minutosBusqueda<00 ){$hora1 = "13:05 - 14:00";}
-
-        foreach($horario as $dia => $horario1){
-            if($dia == $diaBusqueda){
-                foreach($horario1 as $hora2 => $info){
-                    if($hora2 === $hora1){
-                        echo "<p align='center'>";
-                        echo "Ahora mismo nos encontramos en: </br>";
-                        foreach($info as $titulo => $contenido){
-                            echo "<b>$titulo</b>: $contenido";
-                            echo "<br/>";
-                        } 
-                        echo "</p>";
-                    }
-                }
-            }
-        }
-    };
-
-    obtenerModulo("Lunes","13","21");
-    echo "</br>";
-    //mostrarHorario();
+    mostrarHorario();
 ?>
-
-<div align="center">
-    <b><a target="_blank" href="horario.php"><img src="horario.png" alt="Horario" /></a></b>
-</div>
-    
 </body>
 </html>
