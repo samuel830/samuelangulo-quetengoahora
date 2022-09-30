@@ -199,8 +199,39 @@
         echo "</table>";
     };
 
-    function obtenerModulo($diaBusqueda,$horaBusqueda,$minutosBusqueda){
+    function obtenerModulo(){
         global $horario;
+
+        date_default_timezone_set("Europe/London");
+        $diaActual = date("l");;
+        $horaActual = date("H");
+        $minutoActual = date("i");
+
+        switch($diaActual){
+            case "Monday":
+                $diaActual = "Lunes";
+                break;
+            
+            case "Tuesday":
+                $diaActual = "Martes";
+                break;
+
+            case "Wednesday":
+                $diaActual = "Miercoles";
+                break;
+
+            case "Thursday":
+                $diaActual = "Jueves";
+                 break;
+            
+            case "Friday":
+                $diaActual = "Viernes";
+                break;
+        }
+
+        $diaBusqueda = $diaActual;
+        $horaBusqueda = $horaActual;
+        $minutosBusqueda = $minutoActual;
 
         if($diaBusqueda !="Lunes" && $diaBusqueda !="Martes" && $diaBusqueda !="Miércoles" && $diaBusqueda !="Jueves" && $diaBusqueda !="Viernes"){
             echo "Ese día no hay clases manito";
@@ -230,7 +261,7 @@
         }
     };
 
-    obtenerModulo("Lunes","13","21");
+    obtenerModulo();
     echo "</br>";
     //mostrarHorario();
 ?>
