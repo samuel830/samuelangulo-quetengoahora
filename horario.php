@@ -191,7 +191,7 @@
             ),
             "11:15 - 12:10" =>array(
                 "Materia" => "DAD",
-                "Docente" => "JosRod",
+                "Docente" => "JosIgn",
                 "Taller" => "G202"
             ),
             "12:10 - 13:05" =>array(
@@ -376,21 +376,61 @@
             }
         }
         else if($_GET["horarios"] === "SerRam"){
-            echo "<h1 align='center'>Horario de Sergio Ramos en 2º de Daw</h1>";
+            $encontradoDAW = false;
+            $encontradoDAM = false;
+
             foreach($horario2DAW as $dia => $horario1){
-                echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
                 foreach($horario1 as $hora => $info){
-                    echo "<td>";
                     foreach($info as $titulo => $contenido){
                         if($contenido == "SerRam"){
-                            foreach($info as $titulo => $contenido){
-                                echo $contenido;
-                            }
+                            $encontradoDAW = true;
                         }
                     }
-                    echo "</td>";
                 }
-                echo "</tr>";
+            }
+            foreach($horario2DAM as $dia => $horario1){
+                foreach($horario1 as $hora => $info){
+                    foreach($info as $titulo => $contenido){
+                        if($contenido == "SerRam"){
+                            $encontradoDAM = true;
+                        }
+                    }
+                }
+            }
+
+            if($encontradoDAW == true){
+                foreach($horario2DAW as $dia => $horario1){
+                    echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
+                    foreach($horario1 as $hora => $info){
+                        echo "<td>";
+                        foreach($info as $titulo => $contenido){
+                            if($contenido == "SerRam"){
+                                foreach($info as $titulo => $contenido){
+                                    echo $contenido;
+                                }
+                            }
+                        }
+                        echo "</td>";
+                    }
+                    echo "</tr>";
+                }
+            }
+            else if($encontradoDAM == true){
+                foreach($horario2DAM as $dia => $horario1){
+                    echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
+                    foreach($horario1 as $hora => $info){
+                        echo "<td>";
+                        foreach($info as $titulo => $contenido){
+                            if($contenido == "SerRam"){
+                                foreach($info as $titulo => $contenido){
+                                    echo $contenido;
+                                }
+                            }
+                        }
+                        echo "</td>";
+                    }
+                    echo "</tr>";
+                }
             }
         }
         else if($_GET["horarios"] === "JosIgn"){
