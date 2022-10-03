@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horario 2º DAW</title>
+    <title>Horarios 2º DAW</title>
 </head>
 <body>
-<?php
-    $horario = array(
+    <div>
+    <h1 align='center'>Horarios 2º DAW</h1>
+    </div>
+    
+    <div>
+        <form action="horario.php" method="get" align='center'>
+            <label for="horarios">Elige un horario que visualizar:</label>
+            <select  name="horarios" id="horarios">
+            <optgroup label="Horarios Alumnos">
+            <option value="2dawAlum">2º DAW</option>
+            <option value="2damAlum">2º DAM</option>
+            </optgroup>
+            <optgroup label="Horarios Profesores">
+            <option value="2dawProfe">2º DAW</option>
+            <option value="2damProfe">2º DAM</option>
+            </optgroup>
+            </select>
+            <input type="submit" value="Ver" name>
+        </form>
+    </div>
+    
+<?php 
+
+    /*$horario2DAW = array(
         "Lunes" => array(
             "8:00 - 8:55" =>array(
                 "Materia" => "EMR",
@@ -171,10 +193,172 @@
         )
     );
 
-    echo "<h1 align='center'>Horario de clase 2ºDAW</h1>";
+    $horario2DAM = array(
+        "Lunes" => array(
+            "8:00 - 8:55" =>array(
+                "Materia" => "AED",
+                "Docente" => "JosIgn",
+                "Taller" => "G202"
+            ),
+            "8:55 - 9:50" =>array(
+                "Materia" => "AED",
+                "Docente" => "JosIgn",
+                "Taller" => "G202"
+            ),
+            "9:50 - 10:45" =>array(
+                "Materia" => "EMR",
+                "Docente" => "MarGac",
+                "Taller" => "G202"
+            ),
+            "11:15 - 12:10" =>array(
+                "Materia" => "DAD",
+                "Docente" => "JosRod",
+                "Taller" => "G202"
+            ),
+            "12:10 - 13:05" =>array(
+                "Materia" => "DAD",
+                "Docente" => "JosRod",
+                "Taller" => "G202"
+            ),
+            "13:05 - 14:00" =>array(
+                "Materia" => "PGL",
+                "Docente" => "MigHer",
+                "Taller" => "G202"
+            )
+        ),
+        "Martes" =>array(
+            "8:00 - 8:55" =>array(
+                "Materia" => "AED",
+                "Docente" => "JosIgn",
+                "Taller" => "G202"
+            ),
+            "8:55 - 9:50" =>array(
+                "Materia" => "DAD",
+                "Docente" => "JosRod",
+                "Taller" => "G202"
+            ),
+            "9:50 - 10:45" =>array(
+                "Materia" => "AED",
+                "Docente" => "JosIgn",
+                "Taller" => "G202"
+            ),
+            "11:15 - 12:10" =>array(
+                "Materia" => "SSG",
+                "Docente" => "TerGil",
+                "Taller" => "G202"
+            ),
+            "12:10 - 13:05" =>array(
+                "Materia" => "SSG",
+                "Docente" => "TerGil",
+                "Taller" => "G202"
+            ),
+            "13:05 - 14:00" =>array(
+                "Materia" => "SSG",
+                "Docente" => "TerGil",
+                "Taller" => "G202"
+            )
+        ),
+        "Miercoles" =>array(
+            "8:00 - 8:55" =>array(
+                "Materia" => "DAD",
+                "Docente" => "JosRod",
+                "Taller" => "G202"
+            ),
+            "8:55 - 9:50" =>array(
+                "Materia" => "DAD",
+                "Docente" => "JosRod",
+                "Taller" => "G202"
+            ),
+            "9:50 - 10:45" =>array(
+                "Materia" => "PGV",
+                "Docente" => "FerPar",
+                "Taller" => "G202"
+            ),
+            "11:15 - 12:10" =>array(
+                "Materia" => "PGL",
+                "Docente" => "MigHer",
+                "Taller" => "G202"
+            ),
+            "12:10 - 13:05" =>array(
+                "Materia" => "AED",
+                "Docente" => "JosIgn",
+                "Taller" => "G202"
+            ),
+            "13:05 - 14:00" =>array(
+                "Materia" => "AED",
+                "Docente" => "JosIgn",
+                "Taller" => "G202"
+            )
+        ),
+        "Jueves" =>array(
+            "8:00 - 8:55" =>array(
+                "Materia" => "DAD",
+                "Docente" => "JosRod",
+                "Taller" => "G202"
+            ),
+            "8:55 - 9:50" =>array(
+                "Materia" => "DAD",
+                "Docente" => "JosRod",
+                "Taller" => "G202"
+            ),
+            "9:50 - 10:45" =>array(
+                "Materia" => "PGL",
+                "Docente" => "MigHer",
+                "Taller" => "G202"
+            ),
+            "11:15 - 12:10" =>array(
+                "Materia" => "PGV",
+                "Docente" => "FerPar",
+                "Taller" => "G202"
+            ),
+            "12:10 - 13:05" =>array(
+                "Materia" => "EMR",
+                "Docente" => "MarGac",
+                "Taller" => "G202"
+            ),
+            "13:05 - 14:00" =>array(
+                "Materia" => "AED",
+                "Docente" => "JosIgn",
+                "Taller" => "G202"
+            )
+        ),
+        "Viernes" =>array(
+            "8:00 - 8:55" =>array(
+                "Materia" => "PGL",
+                "Docente" => "MigHer",
+                "Taller" => "G202"
+            ),
+            "8:55 - 9:50" =>array(
+                "Materia" => "EMR",
+                "Docente" => "MarGac",
+                "Taller" => "G202"
+            ),
+            "9:50 - 10:45" =>array(
+                "Materia" => "PGV",
+                "Docente" => "FerPar",
+                "Taller" => "G202"
+            ),
+            "11:15 - 12:10" =>array(
+                "Materia" => "PGV",
+                "Docente" => "FerPar",
+                "Taller" => "G202"
+            ),
+            "12:10 - 13:05" =>array(
+                "Materia" => "SSG",
+                "Docente" => "TerGil",
+                "Taller" => "G202"
+            ),
+            "13:05 - 14:00" =>array(
+                "Materia" => "SSG",
+                "Docente" => "TerGil",
+                "Taller" => "G202"
+            )
+        )
+    );
 
     function mostrarHorario(){
-        global $horario;
+        global $horario2DAW;
+        echo "<div>";
         echo "<table border='4' cellpadding='16' align='center'>";
         echo "<tr bgcolor='#E79233'>";
         echo "<td></td>";
@@ -185,7 +369,7 @@
         echo "<td><b>12:10 - 13:05</b></td>";
         echo "<td><b>13:05 - 14:00</b></td>";
         echo "</tr>";
-        foreach($horario as $dia => $horario1){
+        foreach($horario2DAW as $dia => $horario1){
             echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
             foreach($horario1 as $hora => $info){
                 echo "<td>";
@@ -197,10 +381,11 @@
             echo "</tr>";
         }
         echo "</table>";
+        echo "</div>";
     };
 
     function obtenerModulo(){
-        global $horario;
+        global $horario2DAW;
 
         date_default_timezone_set("Europe/London");
         $diaActual = date("l");;
@@ -244,10 +429,11 @@
         if($horaBusqueda==12 && $minutosBusqueda>=10 || $horaBusqueda==13 && $minutosBusqueda<05 ){$hora1 = "12:10 - 13:05";}
         if($horaBusqueda==13 && $minutosBusqueda>=05 || $horaBusqueda==14 && $minutosBusqueda<00 ){$hora1 = "13:05 - 14:00";}
 
-        foreach($horario as $dia => $horario1){
+        foreach($horario2DAW as $dia => $horario1){
             if($dia == $diaBusqueda){
                 foreach($horario1 as $hora2 => $info){
                     if($hora2 === $hora1){
+                        echo "<div>";
                         echo "<p align='center'>";
                         echo "Ahora mismo nos encontramos en: </br>";
                         foreach($info as $titulo => $contenido){
@@ -255,20 +441,26 @@
                             echo "<br/>";
                         } 
                         echo "</p>";
+                        echo "</div>";
                     }
                 }
             }
         }
     };
 
-    obtenerModulo();
-    echo "</br>";
-    //mostrarHorario();
+    /*function verHorario(){
+        obtenerModulo();
+        echo "</br>";
+        mostrarHorario();
+    }
+
+    verHorario();*/
+
 ?>
 
-<div align="center">
+<!---<div align="center">
     <b><a target="_blank" href="horario.php"><img src="horario.png" alt="Horario" /></a></b>
-</div>
+</div>--->
     
 </body>
 </html>
