@@ -350,8 +350,6 @@
         echo "<td><b>13:05 - 14:00</b></td>";
         echo "</tr>";
         if($_GET["horarios"] === "2dawAlum"){
-            echo "<h1 align='center'>Mostrando el horario de 2º DAW</h1>";
-            echo "</br>";
             foreach($horario2DAW as $dia => $horario1){
                 echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
                 foreach($horario1 as $hora => $info){
@@ -365,8 +363,6 @@
             }
         }
         else if($_GET["horarios"] === "2damAlum"){
-            echo "<h1 align='center'>Mostrando el horario de 2º DAM</h1>";
-            echo "</br>";
             foreach($horario2DAM as $dia => $horario1){
                 echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
                 foreach($horario1 as $hora => $info){
@@ -429,27 +425,50 @@
         if($horaBusqueda==12 && $minutosBusqueda>=10 || $horaBusqueda==13 && $minutosBusqueda<05 ){$hora1 = "12:10 - 13:05";}
         if($horaBusqueda==13 && $minutosBusqueda>=05 || $horaBusqueda==14 && $minutosBusqueda<00 ){$hora1 = "13:05 - 14:00";}
 
-        foreach($horario2DAW as $dia => $horario1){
-            if($dia == $diaBusqueda){
-                foreach($horario1 as $hora2 => $info){
-                    if($hora2 === $hora1){
-                        echo "<div>";
-                        echo "<p align='center'>";
-                        echo "Ahora mismo nos encontramos en: </br>";
-                        foreach($info as $titulo => $contenido){
-                            echo "<b>$titulo</b>: $contenido";
-                            echo "<br/>";
-                        } 
-                        echo "</p>";
-                        echo "</div>";
+        if($_GET["horarios"] === "2dawAlum"){
+            echo "<h1 align='center'>Mostrando el horario de 2º DAw</h1>";
+            foreach($horario2DAW as $dia => $horario1){
+                if($dia == $diaBusqueda){
+                    foreach($horario1 as $hora2 => $info){
+                        if($hora2 === $hora1){
+                            echo "<div>";
+                            echo "<p align='center'>";
+                            echo "Ahora mismo nos encontramos en: </br>";
+                            foreach($info as $titulo => $contenido){
+                                echo "<b>$titulo</b>: $contenido";
+                                echo "<br/>";
+                            } 
+                            echo "</p>";
+                            echo "</div>";
+                        }
+                    }
+                }
+            }
+        }else if($_GET["horarios"] === "2damAlum"){
+            echo "<h1 align='center'>Mostrando el horario de 2º DAM</h1>";
+            foreach($horario2DAM as $dia => $horario1){
+                if($dia == $diaBusqueda){
+                    foreach($horario1 as $hora2 => $info){
+                        if($hora2 === $hora1){
+                            echo "<div>";
+                            echo "<p align='center'>";
+                            echo "Ahora mismo nos encontramos en: </br>";
+                            foreach($info as $titulo => $contenido){
+                                echo "<b>$titulo</b>: $contenido";
+                                echo "<br/>";
+                            } 
+                            echo "</p>";
+                            echo "</div>";
+                        }
                     }
                 }
             }
         }
+        
     };
 
     function verHorario(){
-        //obtenerModulo();
+        obtenerModulo();
         echo "</br>";
         mostrarHorario();
     }
