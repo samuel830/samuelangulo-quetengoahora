@@ -375,6 +375,42 @@
                 echo "</tr>";
             }
         }
+        else if($_GET["horarios"] === "SerRam"){
+            echo "<h1 align='center'>Horario de Sergio Ramos en 2º de Daw</h1>";
+            foreach($horario2DAW as $dia => $horario1){
+                echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
+                foreach($horario1 as $hora => $info){
+                    echo "<td>";
+                    foreach($info as $titulo => $contenido){
+                        if($contenido == "SerRam"){
+                            foreach($info as $titulo => $contenido){
+                                echo $contenido;
+                            }
+                        }
+                    }
+                    echo "</td>";
+                }
+                echo "</tr>";
+            }
+        }
+        else if($_GET["horarios"] === "JosIgn"){
+            echo "<h1 align='center'>Horario de Jose Ignacio en 2º de Dam</h1>";
+            foreach($horario2DAM as $dia => $horario1){
+                echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
+                foreach($horario1 as $hora => $info){
+                    echo "<td>";
+                    foreach($info as $titulo => $contenido){
+                        if($contenido == "JosIgn"){
+                            foreach($info as $titulo => $contenido){
+                                echo $contenido;
+                            }
+                        }
+                    }
+                    echo "</td>";
+                }
+                echo "</tr>";
+            }
+        }
         echo "</table>";
         echo "</div>";
     };
@@ -426,7 +462,7 @@
         if($horaBusqueda==13 && $minutosBusqueda>=05 || $horaBusqueda==14 && $minutosBusqueda<00 ){$hora1 = "13:05 - 14:00";}
 
         if($_GET["horarios"] === "2dawAlum"){
-            echo "<h1 align='center'>Mostrando el horario de 2º DAw</h1>";
+            echo "<h1 align='center'>Mostrando el horario de 2º DAW</h1>";
             foreach($horario2DAW as $dia => $horario1){
                 if($dia == $diaBusqueda){
                     foreach($horario1 as $hora2 => $info){
@@ -464,7 +500,6 @@
                 }
             }
         }
-        
     };
 
     function verHorario(){
