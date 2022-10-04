@@ -376,14 +376,14 @@
             }
         }
         else if($_GET["horarios"] === "SerRam"){
-            $encontradoDAW = false;
-            $encontradoDAM = false;
+            $sergioEncontradoDAW = false;
+            $sergioEncontradoDAM = false;
 
             foreach($horario2DAW as $dia => $horario1){
                 foreach($horario1 as $hora => $info){
                     foreach($info as $titulo => $contenido){
                         if($contenido == "SerRam"){
-                            $encontradoDAW = true;
+                            $sergioEncontradoDAW = true;
                         }
                     }
                 }
@@ -392,13 +392,14 @@
                 foreach($horario1 as $hora => $info){
                     foreach($info as $titulo => $contenido){
                         if($contenido == "SerRam"){
-                            $encontradoDAM = true;
+                            $sergioEncontradoDAM = true;
                         }
                     }
                 }
             }
 
-            if($encontradoDAW == true){
+            if($sergioEncontradoDAW == true){
+                echo "<h1 align='center'>Horario de Sergio Ramos en Daw</h1>";
                 foreach($horario2DAW as $dia => $horario1){
                     echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
                     foreach($horario1 as $hora => $info){
@@ -415,7 +416,8 @@
                     echo "</tr>";
                 }
             }
-            else if($encontradoDAM == true){
+            else if($sergioEncontradoDAM == true){
+                echo "<h1 align='center'>Horario de Sergio Ramos en Dam</h1>";
                 foreach($horario2DAM as $dia => $horario1){
                     echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
                     foreach($horario1 as $hora => $info){
@@ -434,7 +436,7 @@
             }
         }
         else if($_GET["horarios"] === "JosIgn"){
-            echo "<h1 align='center'>Horario de Jose Ignacio en 2º de Dam</h1>";
+            echo "<h1 align='center'>Horario de Jose Ignacio</h1>";
             foreach($horario2DAM as $dia => $horario1){
                 echo "<tr><td bgcolor='#E79233'><b>$dia</b></td>";
                 foreach($horario1 as $hora => $info){
@@ -532,6 +534,52 @@
                             foreach($info as $titulo => $contenido){
                                 echo "<b>$titulo</b>: $contenido";
                                 echo "<br/>";
+                            } 
+                            echo "</p>";
+                            echo "</div>";
+                        }
+                    }
+                }
+            }
+        }
+        else if($_GET["horarios"] === "SerRam"){
+            echo "<h1 align='center'>Ahora te toca:</h1>";
+            foreach($horario2DAW as $dia => $horario1){
+                if($dia == $diaBusqueda){
+                    foreach($horario1 as $hora2 => $info){
+                        if($hora2 === $hora1){
+                            echo "<div>";
+                            echo "<p align='center'>";
+                            foreach($info as $titulo => $contenido){
+                                if($contenido == "SerRam"){
+                                    foreach($info as $titulo => $contenido){
+                                        echo "<b>$titulo</b>: $contenido";
+                                        echo "<br/>";
+                                    }
+                                }
+                            } 
+                            echo "</p>";
+                            echo "</div>";
+                        }
+                    }
+                }
+            }
+        }
+        else if($_GET["horarios"] === "JosIgn"){
+            echo "<h1 align='center'>Ahora te toca:</h1>";
+            foreach($horario2DAM as $dia => $horario1){
+                if($dia == $diaBusqueda){
+                    foreach($horario1 as $hora2 => $info){
+                        if($hora2 === $hora1){
+                            echo "<div>";
+                            echo "<p align='center'>";
+                            foreach($info as $titulo => $contenido){
+                                if($contenido == "JosIgn"){
+                                    foreach($info as $titulo => $contenido){
+                                        echo "<b>$titulo</b>: $contenido";
+                                        echo "<br/>";
+                                    }
+                                }
                             } 
                             echo "</p>";
                             echo "</div>";
